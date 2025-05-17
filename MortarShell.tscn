@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dm4ip7ctwhfdf"]
+
+[ext_resource type="Script" uid="uid://bye41juvgs0ww" path="res://mortar_shell.gd" id="1_4n34h"]
+[ext_resource type="PackedScene" uid="uid://bbb7mlhfwf1uq" path="res://mortarShell/scene.gltf" id="1_13hsx"]
+[ext_resource type="Script" uid="uid://ds4jxgosfwt8b" path="res://projectile_camera.gd" id="3_i6hhh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tudvi"]
+height = 3.4042
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_4n34h")
+
+[node name="Area3D" type="Area3D" parent="." groups=["ProjectileCollision"]]
+collision_layer = 4
+collision_mask = 7
+
+[node name="MortarShellCollision" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_tudvi")
+
+[node name="MortarShell" parent="Area3D/MortarShellCollision" instance=ExtResource("1_13hsx")]
+transform = Transform3D(-3.78832e-10, -0.00866667, 0, 0.00866667, -3.78832e-10, 0, 0, 0, 0.00866667, -0.00332832, -0.020752, -0.475098)
+
+[node name="Distance" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1.5, 0)
+spring_length = -8.0
+script = ExtResource("3_i6hhh")
+
+[node name="ProjectileCamera" type="Camera3D" parent="Distance"]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1.5, -7)

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Mortar Shell
+* source:	https://sketchfab.com/3d-models/mortar-shell-15aa311c3ac84b74b6b4d941d70458c0
+* author:	CanBX (https://sketchfab.com/CanBX)
+
+Model License:
+* license type:	CC-BY-NC-ND-4.0 (http://creativecommons.org/licenses/by-nc-nd/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions can not be distributed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Mortar Shell" (https://sketchfab.com/3d-models/mortar-shell-15aa311c3ac84b74b6b4d941d70458c0) by CanBX (https://sketchfab.com/CanBX) licensed under CC-BY-NC-ND-4.0 (http://creativecommons.org/licenses/by-nc-nd/4.0/)

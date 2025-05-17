@@ -1,0 +1,11 @@
+Model Information:
+* title:	Trench
+* source:	https://sketchfab.com/3d-models/trench-4d625a6de5634518a930cb202cf4d2ad
+* author:	filthycent (https://sketchfab.com/filthycent)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Trench" (https://sketchfab.com/3d-models/trench-4d625a6de5634518a930cb202cf4d2ad) by filthycent (https://sketchfab.com/filthycent) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

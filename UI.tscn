@@ -1,0 +1,298 @@
+[gd_scene load_steps=7 format=3 uid="uid://uqyetcgxu0ul"]
+
+[ext_resource type="Script" uid="uid://dsl2t8eqa5u01" path="res://ui.gd" id="1_b3bc3"]
+[ext_resource type="Script" uid="uid://b3nm4fohp1d8" path="res://speed_graph.gd" id="2_3b2b5"]
+[ext_resource type="Script" uid="uid://b7mk5xcoxypo0" path="res://trajectory_graph.gd" id="3_g6l6n"]
+[ext_resource type="Script" uid="uid://geya2ffyspla" path="res://deviation_graph.gd" id="4_qui0h"]
+[ext_resource type="StyleBox" uid="uid://b3u2yf52n03km" path="res://pizdec/UI.tres" id="5_vrfts"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vrfts"]
+bg_color = Color(0, 0, 0, 0.423529)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 0.803922)
+border_blend = true
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[node name="UI" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_b3bc3")
+
+[node name="Layout" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 1
+
+[node name="PhysicsContainer" type="VBoxContainer" parent="Layout"]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 1153.0
+
+[node name="ColorRect" type="PanelContainer" parent="Layout/PhysicsContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vrfts")
+
+[node name="Switches" type="VBoxContainer" parent="Layout/PhysicsContainer/ColorRect"]
+layout_mode = 2
+
+[node name="FPSContainer" type="HBoxContainer" parent="Layout/PhysicsContainer/ColorRect/Switches"]
+layout_mode = 2
+
+[node name="FPS" type="Label" parent="Layout/PhysicsContainer/ColorRect/Switches/FPSContainer"]
+layout_mode = 2
+text = "FPS:"
+
+[node name="FPSSlider" type="HSlider" parent="Layout/PhysicsContainer/ColorRect/Switches/FPSContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+min_value = 1.0
+max_value = 3000.0
+value = 24.0
+
+[node name="FPSValue" type="LineEdit" parent="Layout/PhysicsContainer/ColorRect/Switches/FPSContainer"]
+layout_mode = 2
+placeholder_text = "FPSVAL"
+
+[node name="dtContainer" type="HBoxContainer" parent="Layout/PhysicsContainer/ColorRect/Switches"]
+custom_minimum_size = Vector2(384, 0)
+layout_mode = 2
+
+[node name="dt" type="Label" parent="Layout/PhysicsContainer/ColorRect/Switches/dtContainer"]
+layout_mode = 2
+text = "dt:"
+
+[node name="dtSlider" type="HSlider" parent="Layout/PhysicsContainer/ColorRect/Switches/dtContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+min_value = 0.001
+max_value = 3.0
+step = 0.01
+value = 0.011
+
+[node name="dtValue" type="LineEdit" parent="Layout/PhysicsContainer/ColorRect/Switches/dtContainer"]
+layout_mode = 2
+placeholder_text = "dtVAL"
+
+[node name="gContainer" type="HBoxContainer" parent="Layout/PhysicsContainer/ColorRect/Switches"]
+layout_mode = 2
+
+[node name="g" type="Label" parent="Layout/PhysicsContainer/ColorRect/Switches/gContainer"]
+layout_mode = 2
+text = "g:"
+
+[node name="gSlider" type="HSlider" parent="Layout/PhysicsContainer/ColorRect/Switches/gContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+min_value = -1000.0
+max_value = 1000.0
+step = 0.1
+value = 10.0
+
+[node name="gValue" type="LineEdit" parent="Layout/PhysicsContainer/ColorRect/Switches/gContainer"]
+layout_mode = 2
+placeholder_text = "gVAL"
+
+[node name="v0Container" type="HBoxContainer" parent="Layout/PhysicsContainer/ColorRect/Switches"]
+layout_mode = 2
+
+[node name="v0" type="Label" parent="Layout/PhysicsContainer/ColorRect/Switches/v0Container"]
+layout_mode = 2
+text = "v0:"
+
+[node name="v0Slider" type="HSlider" parent="Layout/PhysicsContainer/ColorRect/Switches/v0Container"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+min_value = -1000.0
+max_value = 1000.0
+step = 0.1
+value = 10.0
+
+[node name="v0Value" type="LineEdit" parent="Layout/PhysicsContainer/ColorRect/Switches/v0Container"]
+layout_mode = 2
+placeholder_text = "v0VAL"
+
+[node name="vUstContainer" type="HBoxContainer" parent="Layout/PhysicsContainer/ColorRect/Switches"]
+layout_mode = 2
+
+[node name="vUst" type="Label" parent="Layout/PhysicsContainer/ColorRect/Switches/vUstContainer"]
+layout_mode = 2
+text = "vUst:"
+
+[node name="vUstSlider" type="HSlider" parent="Layout/PhysicsContainer/ColorRect/Switches/vUstContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+min_value = -1000.0
+max_value = 1000.0
+step = 0.1
+value = 10.0
+
+[node name="vUstValue" type="LineEdit" parent="Layout/PhysicsContainer/ColorRect/Switches/vUstContainer"]
+layout_mode = 2
+placeholder_text = "vUstVAL"
+
+[node name="WindSpeed" type="VBoxContainer" parent="Layout/PhysicsContainer/ColorRect/Switches"]
+layout_mode = 2
+
+[node name="WindZContainer" type="BoxContainer" parent="Layout/PhysicsContainer/ColorRect/Switches/WindSpeed"]
+layout_mode = 2
+
+[node name="WindZ" type="Label" parent="Layout/PhysicsContainer/ColorRect/Switches/WindSpeed/WindZContainer"]
+layout_mode = 2
+text = "Wind Z:"
+
+[node name="HSliderZ" type="HSlider" parent="Layout/PhysicsContainer/ColorRect/Switches/WindSpeed/WindZContainer"]
+custom_minimum_size = Vector2(184, 0)
+layout_mode = 2
+min_value = -1000.0
+max_value = 1000.0
+value = -20.0
+
+[node name="WindZValue" type="LineEdit" parent="Layout/PhysicsContainer/ColorRect/Switches/WindSpeed/WindZContainer"]
+layout_mode = 2
+placeholder_text = "WindZVAL"
+
+[node name="WindYContainer" type="BoxContainer" parent="Layout/PhysicsContainer/ColorRect/Switches/WindSpeed"]
+layout_mode = 2
+
+[node name="WindY" type="Label" parent="Layout/PhysicsContainer/ColorRect/Switches/WindSpeed/WindYContainer"]
+layout_mode = 2
+text = "Wind Y:"
+
+[node name="HSliderY" type="HSlider" parent="Layout/PhysicsContainer/ColorRect/Switches/WindSpeed/WindYContainer"]
+custom_minimum_size = Vector2(184, 0)
+layout_mode = 2
+min_value = -1000.0
+max_value = 1000.0
+
+[node name="WindYValue" type="LineEdit" parent="Layout/PhysicsContainer/ColorRect/Switches/WindSpeed/WindYContainer"]
+layout_mode = 2
+placeholder_text = "WindYVAL"
+
+[node name="WindXContainer" type="BoxContainer" parent="Layout/PhysicsContainer/ColorRect/Switches/WindSpeed"]
+layout_mode = 2
+
+[node name="WindX" type="Label" parent="Layout/PhysicsContainer/ColorRect/Switches/WindSpeed/WindXContainer"]
+layout_mode = 2
+text = "Wind X:"
+
+[node name="HSliderX" type="HSlider" parent="Layout/PhysicsContainer/ColorRect/Switches/WindSpeed/WindXContainer"]
+custom_minimum_size = Vector2(184, 0)
+layout_mode = 2
+min_value = -1000.0
+max_value = 1000.0
+
+[node name="WindXValue" type="LineEdit" parent="Layout/PhysicsContainer/ColorRect/Switches/WindSpeed/WindXContainer"]
+layout_mode = 2
+placeholder_text = "WIndXVAL"
+
+[node name="airDensityContainer" type="HBoxContainer" parent="Layout/PhysicsContainer/ColorRect/Switches"]
+custom_minimum_size = Vector2(384, 0)
+layout_mode = 2
+
+[node name="airDensity" type="Label" parent="Layout/PhysicsContainer/ColorRect/Switches/airDensityContainer"]
+layout_mode = 2
+text = "Air Density: e^(-h/"
+
+[node name="airDensitySlider" type="HSlider" parent="Layout/PhysicsContainer/ColorRect/Switches/airDensityContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+min_value = 0.001
+max_value = 100000.0
+value = 1.001
+
+[node name="airDensityValue" type="LineEdit" parent="Layout/PhysicsContainer/ColorRect/Switches/airDensityContainer"]
+layout_mode = 2
+placeholder_text = "airDensityVAL"
+
+[node name="TestButton" type="Button" parent="Layout/PhysicsContainer/ColorRect/Switches"]
+layout_mode = 2
+text = "Test"
+
+[node name="ResetButton" type="Button" parent="Layout/PhysicsContainer/ColorRect/Switches"]
+layout_mode = 2
+text = "Reset"
+
+[node name="ColorRect2" type="PanelContainer" parent="Layout/PhysicsContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_vrfts")
+
+[node name="SpeedGraph" type="Control" parent="Layout/PhysicsContainer/ColorRect2"]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("2_3b2b5")
+
+[node name="ColorRect3" type="PanelContainer" parent="Layout/PhysicsContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_vrfts")
+
+[node name="TrajectoryGraph" type="Control" parent="Layout/PhysicsContainer/ColorRect3"]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("3_g6l6n")
+
+[node name="ColorRect4" type="PanelContainer" parent="Layout/PhysicsContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_vrfts")
+
+[node name="DeviationGraph" type="Control" parent="Layout/PhysicsContainer/ColorRect4"]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("4_qui0h")
+
+[node name="InfoContainer" type="VBoxContainer" parent="Layout"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 0
+offset_left = 1590.0
+offset_right = 1916.0
+offset_bottom = 1080.0
+
+[node name="GeneralInfoLabel" type="Label" parent="Layout/InfoContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("5_vrfts")
+text = "A to rotate Y LEFT
+D to rotate Y RIGHT
+W to lower X degree
+S to add X degree
+
+SPACE to launch projectile
+X to show cursor (in projectile mode)
+Use mouse to navigate in projectile mode"
+
+[node name="XRotationLabel" type="Label" parent="Layout/InfoContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("5_vrfts")
+
+[node name="YRotationLabel" type="Label" parent="Layout/InfoContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("5_vrfts")
+
+[connection signal="value_changed" from="Layout/PhysicsContainer/ColorRect/Switches/FPSContainer/FPSSlider" to="." method="_on_FPSSlider_value_changed"]
+[connection signal="text_submitted" from="Layout/PhysicsContainer/ColorRect/Switches/FPSContainer/FPSValue" to="." method="_on_FPSValue_text_submitted"]
+[connection signal="value_changed" from="Layout/PhysicsContainer/ColorRect/Switches/dtContainer/dtSlider" to="." method="_on_dtSlider_value_changed"]
+[connection signal="text_submitted" from="Layout/PhysicsContainer/ColorRect/Switches/dtContainer/dtValue" to="." method="_on_dtValue_text_submitted"]
+[connection signal="value_changed" from="Layout/PhysicsContainer/ColorRect/Switches/gContainer/gSlider" to="." method="_on_gSlider_value_changed"]
+[connection signal="text_submitted" from="Layout/PhysicsContainer/ColorRect/Switches/gContainer/gValue" to="." method="_on_gValue_text_submitted"]
+[connection signal="value_changed" from="Layout/PhysicsContainer/ColorRect/Switches/v0Container/v0Slider" to="." method="_on_v0Slider_value_changed"]
+[connection signal="text_submitted" from="Layout/PhysicsContainer/ColorRect/Switches/v0Container/v0Value" to="." method="_on_v0Value_text_submitted"]
+[connection signal="value_changed" from="Layout/PhysicsContainer/ColorRect/Switches/vUstContainer/vUstSlider" to="." method="_on_vUstSlider_value_changed"]
+[connection signal="text_submitted" from="Layout/PhysicsContainer/ColorRect/Switches/vUstContainer/vUstValue" to="." method="_on_vUstValue_text_submitted"]
+[connection signal="value_changed" from="Layout/PhysicsContainer/ColorRect/Switches/WindSpeed/WindZContainer/HSliderZ" to="." method="_on_windslider_changed"]
+[connection signal="text_submitted" from="Layout/PhysicsContainer/ColorRect/Switches/WindSpeed/WindZContainer/WindZValue" to="." method="_on_windlabel_changed"]
+[connection signal="value_changed" from="Layout/PhysicsContainer/ColorRect/Switches/WindSpeed/WindYContainer/HSliderY" to="." method="_on_windslider_changed"]
+[connection signal="text_submitted" from="Layout/PhysicsContainer/ColorRect/Switches/WindSpeed/WindYContainer/WindYValue" to="." method="_on_windlabel_changed"]
+[connection signal="value_changed" from="Layout/PhysicsContainer/ColorRect/Switches/WindSpeed/WindXContainer/HSliderX" to="." method="_on_windslider_changed"]
+[connection signal="text_submitted" from="Layout/PhysicsContainer/ColorRect/Switches/WindSpeed/WindXContainer/WindXValue" to="." method="_on_windlabel_changed"]
+[connection signal="value_changed" from="Layout/PhysicsContainer/ColorRect/Switches/airDensityContainer/airDensitySlider" to="." method="_on_densityDelim_value_changed"]
+[connection signal="text_submitted" from="Layout/PhysicsContainer/ColorRect/Switches/airDensityContainer/airDensityValue" to="." method="_on_densityDelim_text_submitted"]
+[connection signal="pressed" from="Layout/PhysicsContainer/ColorRect/Switches/ResetButton" to="." method="_on_ResetButton_pressed"]

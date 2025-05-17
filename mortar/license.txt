@@ -1,0 +1,11 @@
+Model Information:
+* title:	Mortar 60
+* source:	https://sketchfab.com/3d-models/mortar-60-d1d00ec311f24bafb36380de8e232241
+* author:	HMD’sculptor (https://sketchfab.com/Hmd_sculptor)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Mortar 60" (https://sketchfab.com/3d-models/mortar-60-d1d00ec311f24bafb36380de8e232241) by HMD’sculptor (https://sketchfab.com/Hmd_sculptor) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
